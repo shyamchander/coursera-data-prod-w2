@@ -1,0 +1,50 @@
+---
+title: "Data Product Week 2 Assignment"
+author: "Shyam Chander"
+date: "January 13, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+locations <- data.frame(
+lat = c(22.043302, 22.043302,22.043047,22.098841,22.227602,22.231575,22.231575,22.231575,22.231575,22.231575,22.220116,22.034333,22.034333,22.034333,21.990408,22.051619,22.051619,21.952019), lng = c(-159.336020,-159.336020,-159.360781,-159.305389,-159.401348,-159.401934,-159.401934,-159.401934,-159.401934,-159.401934,-159.565239,-159.379023,-159.379023,-159.379023,-159.666284,-159.659842,-159.659842,-159.661312))
+
+sites <- c(
+"<a href='https://c1.staticflickr.com/1/730/31115115884_e76e076b1c_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/730/31115115884_e76e076b1c_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/722/31115118024_8ff851d02f_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/722/31115118024_8ff851d02f_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/596/31115120734_c8e4086f84_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/596/31115120734_c8e4086f84_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/580/31807340532_aa84d828d7_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/580/31807340532_aa84d828d7_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/517/31807344252_90017c6b39_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/517/31807344252_90017c6b39_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/713/31807347432_41ac5a0421_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/713/31807347432_41ac5a0421_s.jpg'/></a>",
+"<a href='https://c2.staticflickr.com/6/5532/31807349292_d57ecc6c22_b.jpg'><img height=50 width=50 src='https://c2.staticflickr.com/6/5532/31807349292_d57ecc6c22_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/271/31807354762_0028ac2a48_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/271/31807354762_0028ac2a48_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/387/31807357562_661e37ef06_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/387/31807357562_661e37ef06_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/541/31807361052_42ef307fcf_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/541/31807361052_42ef307fcf_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/480/31807365962_d4def21dc6_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/480/31807365962_d4def21dc6_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/492/31115147724_ab1e1d4591_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/492/31115147724_ab1e1d4591_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/315/31115150324_c4749b2e70_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/315/31115150324_c4749b2e70_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/390/31115152444_d234e30512_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/390/31115152444_d234e30512_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/737/31115154164_fc45e61e8f_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/737/31115154164_fc45e61e8f_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/393/31807383842_70c395197f_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/393/31807383842_70c395197f_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/664/31807386342_4b5f0d49d2_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/664/31807386342_4b5f0d49d2_s.jpg'/></a>",
+"<a href='https://c1.staticflickr.com/1/706/31807387912_88c0d74057_b.jpg'><img height=50 width=50 src='https://c1.staticflickr.com/1/706/31807387912_88c0d74057_s.jpg'/></a>"
+)
+```
+
+## Data Science Assignment for Data Product Course - Week 2
+Date HTML generated:
+```{r displayDate, echo=FALSE,comment=""}
+format(Sys.Date(), "%a ,%B %d, %Y")
+```
+
+## Including Plot
+Some places visited in last trip to Kauai, HI
+```{r plot, echo=FALSE}
+library(leaflet) 
+locations %>%
+leaflet() %>%
+addTiles() %>%
+addMarkers(popup=sites)
+```
+
